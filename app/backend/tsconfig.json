@@ -1,0 +1,27 @@
+{
+   "compilerOptions": {
+      "target": "ES6",
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "sourceMap": true,
+      "outDir": "./build",
+      "rootDir": "./api",
+      "strict": true,
+      "moduleResolution": "node",
+      "baseUrl": "./", // Adjusted the baseUrl to be more explicit
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "skipLibCheck": true,
+      "paths": {
+         "*": [
+            "node_modules/*"
+         ]
+      }
+   },
+  "include": [
+    "./api/**/*"
+  ],
+
+}
