@@ -14,8 +14,8 @@ const config: Options = {
   logging: false,
   dialectOptions: {
       ssl: {
-        require: true, // This will force SSL
-        rejectUnauthorized: false // This will bypass the SSL certificate validation
+        require: true, 
+        rejectUnauthorized: false
       }
     }
 };

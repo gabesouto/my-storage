@@ -5,9 +5,8 @@
   "main": "api/build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec ts-node --transpile-only api/index.ts",
-    "build": "tsc --project tsconfig.json",
-    "start": "node api/build/index.js" 
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +21,7 @@
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.25.3",
     "nodemon": "^3.1.0",
+    "rimraf": "^5.0.5",
     "sequelize-cli": "^6.6.2",
     "typescript": "^5.3.3"
   },

@@ -4,7 +4,7 @@
       "esModuleInterop": true,
       "module": "commonjs",
       "sourceMap": true,
-      "outDir": "./build",
+      "outDir": "./dist",
       "rootDir": "./api",
       "strict": true,
       "moduleResolution": "node",
