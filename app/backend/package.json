@@ -2,10 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "api/build/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
+    "start": "nodemon src/index.ts",
     "ts.check": "tsc --project tsconfig.json"
   },
   "keywords": [],

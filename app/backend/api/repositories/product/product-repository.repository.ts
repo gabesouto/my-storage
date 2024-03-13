@@ -21,6 +21,7 @@ export default class ProductRepository implements ProductRepositoryInterface {
       })
 
    }
+   
 public async bulkCreate(req: Product[]): Promise<Product[]> {
   const newProducts: Product[] = [];
   
