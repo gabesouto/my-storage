@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist && tsc",
     "start": "nodemon api/index.ts",
+    "add-build": "git add dist",
     "ts.check": "tsc --project tsconfig.json"
   },
   "keywords": [],
@@ -38,5 +39,10 @@
     "sequelize": "^6.37.1",
     "ts-node": "^10.9.2",
     "yarn": "^1.22.21"
-  }
+  },
+     "pre-commit": [
+      "ts.check",
+      "build",
+      "add-build"
+  ]
 }

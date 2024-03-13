@@ -1,6 +1,7 @@
 
 import { configDotenv } from 'dotenv';
 import { Dialect, Options } from 'sequelize';
+import pg from 'pg'
 
 configDotenv();
 
@@ -11,6 +12,7 @@ const config: Options = {
   host: process.env.POSTGRES_HOST,
   port: Number(process.env.DB_PORT) || 5432,
   dialect: process.env.DIALECT_ENV  as Dialect,
+  dialectModule: pg,
   logging: false,
   dialectOptions: {
       ssl: {
