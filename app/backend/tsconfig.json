@@ -1,27 +1,19 @@
-{
-   "compilerOptions": {
-      "target": "ES6",
-      "esModuleInterop": true,
-      "module": "commonjs",
-      "sourceMap": true,
-      "outDir": "./dist",
-      "rootDir": "./api",
-      "strict": true,
-      "moduleResolution": "node",
-      "baseUrl": "./", // Adjusted the baseUrl to be more explicit
-      "forceConsistentCasingInFileNames": true,
-      "resolveJsonModule": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "skipLibCheck": true,
-      "paths": {
-         "*": [
-            "node_modules/*"
-         ]
-      }
-   },
-  "include": [
-    "./api/**/*"
-  ],
 
-}
+  {
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "target": "es6",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*", "api/types/*"]
+        }
+    },
+    "include": ["api/**/*"]
+    }
+
