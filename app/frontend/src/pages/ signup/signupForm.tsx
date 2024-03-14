@@ -23,7 +23,7 @@ export default function SignupForm() {
 		const signupResponse = await requestLogin(`${import.meta.env.VITE_API_UR}/signup`,{email, password, username})
 		console.log(signupResponse);
 
-      if (signupResponse) navigate(`${import.meta.env.VITE_API_UR}/signin`);
+      if (signupResponse) navigate("/signin");
 
 
 		} catch (err) {
