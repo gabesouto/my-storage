@@ -22,7 +22,7 @@ const handleSignInBtn = async () => {
     setToken(signInResponse.token);
     localStorage.setItem("token", signInResponse.token);
     login();
-	 navigate("/products");
+	 navigate(`${import.meta.env.VITE_API_URL}/products`);
 
   } catch (err) {
     console.log("Erro durante o login:", err);
