@@ -1,4 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 export default function  Header(){
+	const navigate = useNavigate();
+
+   const logout = () => {
+      localStorage.clear();
+      navigate("/signin")
+   }
 return (
       <nav className="border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -18,6 +26,10 @@ return (
             </li>
             <li>
                <a href="https://github.com/gabesouto/lexart-test-tecnico" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Repository</a>
+            </li>
+
+            <li>
+               <button type="button" onClick={logout} className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Log Out</button>
             </li>
          
             </ul>

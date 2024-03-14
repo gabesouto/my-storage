@@ -34,7 +34,7 @@ const handleSignInBtn = async () => {
 	return(
 		<div className='flex flex-col bg-white shadow-xl py-6 px-4 rounded-lg font-lato w-11/12 max-w-md'>
 
-			<section className=' sm:mx-auto sm:w-full sm:max-w-sm'>
+			<section className='sm:mx-auto sm:w-full sm:max-w-sm'>
 				<h2 className='text-center text-2xl font-bold text-gray-900 my-2'>
 					Sign In
 				</h2>
