@@ -32,7 +32,7 @@ function ProductTable() {
 
   const fetchData = async () => {
     try {
-      const fetchProducts = await requestData('http://localhost:3001/products');
+      const fetchProducts = await requestData(`${import.meta.env.VITE_API_URL}/products`);
       setProducts(fetchProducts);
     } catch (error) {
       console.log(error);
@@ -62,7 +62,7 @@ function ProductTable() {
     }
 
     try {
-      const addedProduct = await requestNewProduct('http://localhost:3001/products', newProduct);
+      const addedProduct = await requestNewProduct(`${import.meta.env.VITE_API_URL}/products`, newProduct);
       setProducts(prevProducts => [...prevProducts, addedProduct]);
       setNewProduct({
         name: '',
@@ -98,7 +98,7 @@ const handleAddProducts = async (productsToAdd: Product[]) => {
     }));
 
     // Enviar a requisição com o requestBody
-    const addedProducts = await requestNewProduct('http://localhost:3001/products', requestBody);
+    const addedProducts = await requestNewProduct(`${import.meta.env.VITE_API_URL}/products`, requestBody);
     
     // Atualizar o estado dos produtos e limpar o estado do novo produto
     setProducts(prevProducts => [...prevProducts, ...addedProducts]);
@@ -127,7 +127,7 @@ const handleAddProducts = async (productsToAdd: Product[]) => {
 
   const handleSaveEdit = async () => {
     try {
-      await requestProductUpdate(`http://localhost:3001/products/${editingProductId}`, editingProduct);
+      await requestProductUpdate(`${import.meta.env.VITE_API_URL}/${editingProductId}`, editingProduct);
       setProducts(prevProducts =>
         prevProducts.map(product =>
           product.id === editingProductId ? editingProduct : product
@@ -160,7 +160,7 @@ const handleAddProducts = async (productsToAdd: Product[]) => {
   const handleRemoveProduct = async (id: number) => {
     try {
       // Remover o produto do servidor
-      await requestRemoveProduct(`http://localhost:3001/products/${id}`);
+      await requestRemoveProduct(`${import.meta.env.VITE_API_URL}/products/${id}`);
 
       // Remover o produto do estado
       setProducts(prevProducts => prevProducts.filter(product => product.id !== id));

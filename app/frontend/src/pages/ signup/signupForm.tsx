@@ -20,7 +20,7 @@ export default function SignupForm() {
       setButtonClicked(true)
 
 		try {
-		const signupResponse = await requestLogin("http://localhost:3001/signup",{email, password, username})
+		const signupResponse = await requestLogin(`${import.meta.env.VITE_API_UR}/signup`,{email, password, username})
 		console.log(signupResponse);
 
       if (signupResponse) navigate("/signin");

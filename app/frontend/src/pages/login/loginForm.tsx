@@ -17,7 +17,7 @@ const handleSignInBtn = async () => {
   }
 
   try {
-    const signInResponse = await requestLogin('http://localhost:3001/signin' , { email, password });
+    const signInResponse = await requestLogin(`${import.meta.env.VITE_API_URL}/signin`, { email, password });
 
     setToken(signInResponse.token);
     localStorage.setItem("token", signInResponse.token);
