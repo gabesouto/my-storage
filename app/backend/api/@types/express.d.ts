@@ -1,4 +1,4 @@
-import { User } from "src/repositories/user/user.type"
+import { User } from "../repositories/user/user.type"
 
 declare global {
 	namespace Express {

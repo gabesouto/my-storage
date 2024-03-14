@@ -16,11 +16,6 @@ const user_model_1 = __importDefault(require("../../models/user.model"));
 class UserRepository {
     constructor() {
         this.model = user_model_1.default;
-        // public async login(req:User){
-        // const user = this.model.findOne({where: { email: req.email}})
-        // if(user) return user
-        // return "user not found"
-        // }
     }
     create({ email, password, username }) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -33,6 +28,14 @@ class UserRepository {
     getUser(email) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.model.findOne({ where: { email } });
+        });
+    }
+    login(req) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const user = this.model.findOne({ where: { email: req.email } });
+            if (user)
+                return user;
+            return "user not found";
         });
     }
 }
