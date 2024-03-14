@@ -1,8 +1,7 @@
 import { Product } from "./product.type";
-import { ProductRepositoryInterface } from "./product-repository.interface.";
 import SequelizeProduct from "../../models/product.model";
 
-export default class ProductRepository implements ProductRepositoryInterface {
+export default class ProductRepository {
 
    private model = SequelizeProduct
 
