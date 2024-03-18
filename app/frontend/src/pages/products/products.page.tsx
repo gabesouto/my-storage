@@ -3,10 +3,10 @@ import ProductTable from "./components/product.table";
 
 function ProductsPage() {
 	return (
-		<div > 
+		<div className='h-screen'> 
 			<Header></Header>
-
-			<div className="flex flex-col gap-4 w-full h-full bg-slate-100  top-0 left-0 right-0 bottom-0 items-center justify-center">
+			
+			<div className=" w-full h-full bg-slate-100  top-0 left-0 right-0 bottom-0 items-center ">
 				<ProductTable></ProductTable>
 			</div>
 		</div>

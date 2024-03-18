@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Product, requestData, requestNewProduct, requestProductUpdate, requestRemoveProduct } from '../../../services/requests'
-import AddProductFormSingle from './AddProductFormSingle';
 import AddProductFormMulti from './AddProductsMultipleForm';
 
 function ProductTable() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [addingmultiple, setAddingMultiple] = useState(false)
   const [newProduct, setNewProduct] = useState<Product>({
     name: '',
     color: '',
@@ -38,15 +36,7 @@ function ProductTable() {
       console.log(error);
     }
   };
-
-  const handleInputChangeNewProduct = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setNewProduct(prevProduct => ({
-      ...prevProduct,
-      [name]: value,
-    }));
-  };
-
+  
   const handleInputChangeEditingProduct = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEditingProduct(prevProduct => ({
@@ -55,14 +45,14 @@ function ProductTable() {
     }));
   };
 
-  const handleAddProduct = async () => {
-    if (!newProduct.name || !newProduct.color || !newProduct.model || !newProduct.brand || newProduct.price <= 0) {
+  const handleAddProduct = async (productToAdd: Product) => {
+    if (!productToAdd.name || !productToAdd.color || !productToAdd.model || !productToAdd.brand || productToAdd.price <= 0) {
       alert('Please fill in all required fields.');
       return;
     }
 
     try {
-      const addedProduct = await requestNewProduct(`${import.meta.env.VITE_API_URL}/products`, newProduct);
+      const addedProduct = await requestNewProduct(`${import.meta.env.VITE_API_URL}/products`, productToAdd);
       setProducts(prevProducts => [...prevProducts, addedProduct]);
       setNewProduct({
         name: '',
@@ -76,9 +66,15 @@ function ProductTable() {
     }
   };
 
-const handleAddProducts = async (productsToAdd: Product[]) => {
+const handleAddProducts = async (productsToAdd: Product[] | Product) => {
   try {
-    // Verificar se todos os campos estão preenchidos
+    if (!Array.isArray(productsToAdd)) {
+      // Se for apenas um produto, chamamos a função handleAddProduct para adicionar um único produto
+      await handleAddProduct(productsToAdd);
+      return;
+    }
+
+    // Verificar se todos os campos estão preenchidos para todos os produtos
     for (const product of productsToAdd) {
       if (!product.name || !product.brand || !product.model || !product.color || product.price <= 0) {
         alert("Please complete all fields");
@@ -127,7 +123,7 @@ const handleAddProducts = async (productsToAdd: Product[]) => {
 
   const handleSaveEdit = async () => {
     try {
-      await requestProductUpdate(`${import.meta.env.VITE_API_URL}/${editingProductId}`, editingProduct);
+      await requestProductUpdate(`${import.meta.env.VITE_API_URL}/products/${editingProductId}`, editingProduct);
       setProducts(prevProducts =>
         prevProducts.map(product =>
           product.id === editingProductId ? editingProduct : product
@@ -188,7 +184,7 @@ const sortedProducts = sortByPrice ? filteredProducts.sort((a, b) => b.price - a
         <div className="mt-4 flex">
           <input type="text" value={searchTerm} onChange={handleSearchChange} className="mr-2 px-2 py-1 rounded border-gray-300 focus:outline-none focus:border-blue-500" placeholder="Search by product name" />
           <button onClick={handleSortByPrice} className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-            {sortByPrice ? "Sort by price (Low to High)" : "Sort by price (High to Low)"}
+            {sortByPrice ? "Sort by price (High to Low)" : "Sort by price (Low to High)"}
           </button>
         </div>
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -257,10 +253,10 @@ const sortedProducts = sortByPrice ? filteredProducts.sort((a, b) => b.price - a
                 <td className="px-6 py-4 flex">
                   {editingProductId === product.id ? (
                     <>
-                      <button onClick={handleSaveEdit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      <button onClick={handleSaveEdit} className=" hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                         Save
                       </button>
-                      <button onClick={handleCancelEdit} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                      <button onClick={handleCancelEdit} className=" hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
                         Cancel
                       </button>
                     </>
@@ -306,17 +302,11 @@ const sortedProducts = sortByPrice ? filteredProducts.sort((a, b) => b.price - a
       </div>
       {/* Add new product section */}
       <div className="w-8/12">
-        
-        <button onClick={() => setAddingMultiple(!addingmultiple)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-3 rounded">{addingmultiple ? "Add new product" : "Add multiple products"}</button>
-        {
-        addingmultiple ?
+       
         <div className='flex w-8/12"'>
           <AddProductFormMulti onAddProducts={handleAddProducts}></AddProductFormMulti>
         </div>
-        : <div className="flex w-8/12">
-           <AddProductFormSingle newProduct={newProduct} onInputChange={handleInputChangeNewProduct} onAddProduct={handleAddProduct}></AddProductFormSingle>
-        </div>
-        }
+
       
       </div>
     </div>
