@@ -4,7 +4,7 @@ import AddProductFormMulti from './AddProductsMultipleForm';
 
 function ProductTable() {
   const [products, setProducts] = useState<Product[]>([]);
-  const [newProduct, setNewProduct] = useState<Product>({
+  const [, setNewProduct] = useState<Product>({
     name: '',
     color: '',
     model: '',
@@ -36,7 +36,7 @@ function ProductTable() {
       console.log(error);
     }
   };
-  
+
   const handleInputChangeEditingProduct = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEditingProduct(prevProduct => ({
