@@ -1,29 +1,33 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
-import SingIn from './pages/login/login.page';
-import Signup from './pages/ signup/signup.page';
-import ProductsPage from './pages/products/products.page';
+import { Routes, Route, Navigate } from 'react-router-dom'
+
+import ProductsPage from './pages/products/products.page'
+import { ProtectedRoute } from './protectedRoute'
+import SignIn from './pages/login/signin.page'
+import SignUp from './pages/ signup/signup.page'
+import { useAuth } from './authWrapper'
 
 const App = () => {
+  const { isAuthenticated } = useAuth()
 
-const isAuthenticated = localStorage.getItem("isAuthenticated")
+  return (
+    <div className="h-screen">
+      <Routes>
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
 
-
- return (
-    <div className='h-screen'>
-       <Routes>
-
-          <Route path="/signin" element={<SingIn />} />
-          <Route path="/signup" element={<Signup />} />
-          
-          {
-            isAuthenticated &&  <Route path="/products" element={<ProductsPage />} />
+        <Route
+          path="/products"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <ProductsPage />
+            </ProtectedRoute>
           }
+        />
 
-       <Route path={"*"} element={ <Navigate replace to={ "/signin" }/> }/>
-     
-       </Routes>
+        <Route path="*" element={<Navigate replace to="/signin" />} />
+      </Routes>
     </div>
- );
-};
+  )
+}
 
 export default App
