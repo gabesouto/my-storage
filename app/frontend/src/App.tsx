@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
 
         <Route
-          path="/products"
+          path="/dashboard"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <ProductsPage />

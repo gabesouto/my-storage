@@ -14,7 +14,7 @@ export default function SignInForm() {
       return window.alert('Please fill in all fields')
     }
 
-    if (localStorage.getItem('isAuthenticated')) return navigate('/products')
+    if (localStorage.getItem('isAuthenticated')) return navigate('/dashboard')
 
     try {
       const signInResponse = await requestLogin(
@@ -24,8 +24,10 @@ export default function SignInForm() {
 
       setToken(signInResponse.token)
       localStorage.setItem('token', signInResponse.token)
+      console.log(signInResponse.token)
+
       login()
-      navigate('/products')
+      navigate('/dashboard')
     } catch (err) {
       console.log('Erro durante o login:', err)
       return window.alert('Login failed. Please try again.') // Exibe mensagem de erro para o usuário
