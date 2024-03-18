@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd backend && npm run build && cd .. && cd frontend && npm run build "
+    "apps": "cd backend && npm install && cd .. && cd frontend && npm install"
   },
   "keywords": [],
   "author": "",
