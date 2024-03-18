@@ -29,25 +29,16 @@ Make sure you have Node.js and npm installed on your machine. You can download a
     cd lexart-test-tecnico
     ```
 
-3. Install backend dependencies:
+3. Install  dependencies:
 
     ```bash
-    cd app/backend
-    npm install
-    ```
+    npm run apps
+    ``
 
-   Note: **CHANGE THE NAME OF THE .EN-EXAMPLE FILE TO .env**
 
-4. Install frontend dependencies:
+### Running the Development Server(optional)
 
-    ```bash
-    cd app/frontend
-    npm install
-    ```
-
-## Running the Development Server
-
-After installing the dependencies, you can start the development server for both the backend and frontend.
+After installing the dependencies, you can start the development server for both the backend and frontend, if you choose to run the application this way make sure you change all endpoint calls to your local .env variables
 
 1. Open a terminal and navigate to the backend folder:
 
@@ -74,5 +65,15 @@ After installing the dependencies, you can start the development server for both
     ```
 
 Now you should have the backend and frontend running locally in separate terminals. You can access the application in your browser by visiting `http://localhost:3001`.
+
+### Running the frontend with the API from vercel(recommended)
+
+Choosing to run the application this way means that you don't have to nothing besides starting the frontend(as seen below) 
+
+1. Start the development server for the frontend:
+
+    ```bash
+    npm run dev
+    ```
 
 
