@@ -7,7 +7,7 @@ This system is designed to offer a seamless interface for managing store invento
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [API endpoints](api-endpoints)
+- [API endpoints](#api-endpoints)
 
 
 ## Usage
