@@ -3,12 +3,11 @@
 This system is designed to offer a seamless interface for managing store inventories, integrating both frontend and backend functionalities to support comprehensive CRUD (Create, Read, Update, Delete) operations. This project was inspired by a skill test that I was offered by a company.
 
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## README map
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [API endpoints](apit-endpoints)
 
 
 ## Usage
@@ -22,6 +21,27 @@ to access all the features of the application, you need to be a authenticated us
 
 this is the core of the applicaton, here you can add multiple produtos, edit and remove, the interface is not yet responsive because the application main focus is in the api, this is just a interface to see the API running
  ![Dashboard](https://github.com/gabesouto/my-storage/blob/main/app/Screenshot%20from%202024-03-18%2015-18-13.png)
+
+
+## API Endpoints
+
+
+### /products
+
+- **GET**: Returns all products.
+
+#### /products/{productId}
+
+- **DELETE**: Endpoint to delete or remove a specific product by its productId.
+- **UPDATE**: Endpoint to update a specific product by its productId.
+
+### /signin
+
+- **POST**: Endpoint for user login. Returns a token upon successful authentication.
+
+### /signup
+
+- **POST**: Endpoint to create a new user. Returns user data upon successful registration.
 
 
 ## Installation
