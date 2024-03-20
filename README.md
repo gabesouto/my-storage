@@ -116,4 +116,8 @@ Choosing to run the application this way means that you don't have to nothing be
     npm run dev
     ```
 
+#  How To Reach Me:
+ <a href="mailto:soutogabriel04@gmail.com?"><img src="https://img.shields.io/badge/gmail-%23DD0031.svg?&style=for-the-badge&logo=gmail&logoColor=white"/></a>
+ [![image](https://img.shields.io/badge/Linkedin-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gabrielsouto-developer/)
+
 
