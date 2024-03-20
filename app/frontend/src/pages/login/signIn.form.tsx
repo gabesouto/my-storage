@@ -30,7 +30,7 @@ export default function SignInForm() {
       navigate('/dashboard')
     } catch (err) {
       console.log('Erro durante o login:', err)
-      return window.alert('Login failed. Please try again.') // Exibe mensagem de erro para o usuário
+      return window.alert('Login failed. Please try again.')
     }
   }
 
