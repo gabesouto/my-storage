@@ -66,7 +66,7 @@ Make sure you have Node.js and npm installed on your machine. You can download a
 2. Navigate to the cloned folder:
 
     ```bash
-    cd lexart-test-tecnico
+    cd my-storage
     ```
 
 3. Install  dependencies:
