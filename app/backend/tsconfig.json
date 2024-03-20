@@ -14,7 +14,9 @@
             "*": ["node_modules/*", "api/types/*"]
         }
     },
-    "include": ["api/**/*"]
+    "include": ["api/**/*", "@types", "types.d.ts"],
+    "files":["types.d.ts"]
+    
     }
 
 

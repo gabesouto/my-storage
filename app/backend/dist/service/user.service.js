@@ -19,8 +19,8 @@ class UserService {
     constructor(repository = new user_repository_1.default()) {
         this.repository = repository;
     }
-    create({ email, password, username }) {
-        return __awaiter(this, void 0, void 0, function* () {
+    create(_a) {
+        return __awaiter(this, arguments, void 0, function* ({ email, password, username }) {
             const hashPassword = yield (0, bcryptjs_1.hash)(password, 10);
             const userExists = yield this.repository.getUser(email);
             if (userExists) {
@@ -34,8 +34,8 @@ class UserService {
             return { data: response };
         });
     }
-    login({ email, password }) {
-        return __awaiter(this, void 0, void 0, function* () {
+    login(_a) {
+        return __awaiter(this, arguments, void 0, function* ({ email, password }) {
             const userExists = yield this.repository.getUser(email);
             if (!userExists) {
                 return { data: "Credenciais incorretas" };

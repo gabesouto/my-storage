@@ -17,8 +17,8 @@ class UserRepository {
     constructor() {
         this.model = user_model_1.default;
     }
-    create({ email, password, username }) {
-        return __awaiter(this, void 0, void 0, function* () {
+    create(_a) {
+        return __awaiter(this, arguments, void 0, function* ({ email, password, username }) {
             const newUser = yield this.model.create({
                 email, password, username
             });
