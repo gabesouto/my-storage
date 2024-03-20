@@ -2,6 +2,11 @@
 
 This system is designed to offer a seamless interface for managing store inventories, integrating both frontend and backend functionalities to support comprehensive CRUD (Create, Read, Update, Delete) operations. This project was inspired by a skill test that I was offered by a company.
 
+## Deploy
+[my-storage](https://my-storage-gabesouto.vercel.app/)
+
+You can access the project in your browser by just clicking the link above
+
 
 ## README map
 
@@ -29,6 +34,7 @@ this is the core of the applicaton, here you can add multiple produtos, edit and
 ### /products
 
 - **GET**: Returns all products.
+- **POST**: Add a new product to the database.
 
 #### /products/{productId}
 
