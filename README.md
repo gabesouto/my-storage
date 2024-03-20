@@ -35,20 +35,23 @@ this is the core of the applicaton, here you can add multiple produtos, edit and
 
 - **GET**: Returns all products.
 - **POST**: Add a new product to the database.
+        ![post-products-example](https://github.com/gabesouto/my-storage/blob/main/app/public/PostProductsExample.png)
 
 #### /products/{productId}
 
 - **DELETE**: Endpoint to delete or remove a specific product by its productId.
 - **UPDATE**: Endpoint to update a specific product by its productId.
+       ![put-products-example](https://github.com/gabesouto/my-storage/blob/main/app/public/PutProductExample.png)
 
 ### /signin
 
 - **POST**: Endpoint for user login. Returns a token upon successful authentication.
+   ![signin-example](https://github.com/gabesouto/my-storage/blob/main/app/public/SignInExample.png)
 
 ### /signup
 
 - **POST**: Endpoint to create a new user. Returns user data upon successful registration.
-
+   ![signin-example](https://github.com/gabesouto/my-storage/blob/main/app/public/SignupExample.png)
 
 ## Installation
 
