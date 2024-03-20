@@ -34,6 +34,7 @@ this is the core of the applicaton, here you can add multiple produtos, edit and
 ### /products
 
 - **GET**: Returns all products.
+- **POST**: Add a new product to the database.
 
 #### /products/{productId}
 
